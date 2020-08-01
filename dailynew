@@ -21,9 +21,9 @@ Dotenv.load
 
 def authorize
   authorizer = Google::Auth::UserAuthorizer.new(
-    Google::Auth::ClientId.from_file('credentials.json'),
+    Google::Auth::ClientId.from_file(File.expand_path('credentials.json', __dir__)),
     Google::Apis::DocsV1::AUTH_DOCUMENTS,
-    Google::Auth::Stores::FileTokenStore.new(file: 'token.yaml')
+    Google::Auth::Stores::FileTokenStore.new(file: File.expand_path('token.yaml', __dir__))
   )
   credentials = authorizer.get_credentials(USER_ID)
 
