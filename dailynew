@@ -46,4 +46,6 @@ service = Google::Apis::DocsV1::DocsService.new
 service.client_options.application_name = ENV['APPLICATION_NAME']
 service.authorization = authorize
 
-p service.create_document(Google::Apis::DocsV1::Document.new(title: Date.today.strftime('%Y/%m/%d')))
+# TODO: Exception
+doc = service.create_document(Google::Apis::DocsV1::Document.new(title: Date.today.strftime('%Y/%m/%d')))
+system("open https://docs.google.com/document/d/#{doc.document_id}/edit")
