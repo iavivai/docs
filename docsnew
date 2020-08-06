@@ -25,7 +25,7 @@ class DocsNew < Thor
 
   default_command :start
 
-  desc 'start', "Create a document. With -t <title> option, Create a document with a title."
+  desc 'start', 'Create a document. With -t <title> option, Create a document with a title.'
   option :t
   def start
     execute(options[:t])
